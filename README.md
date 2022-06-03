@@ -2,7 +2,7 @@
 Visual Graph for Kubernetes (VGK) is a `low-code` Visual Graphing system to create and script Objects on Kubernetes. VGK is comprised of `VisualGraphs` and `VisualSubGraphs` objects.
 
 ###### Figure 1.) Mock Design
-![VisualGraphReferenceArch](./images/vgk-mock-0.png)
+![vgk reference architecture](./images/vgk-mock-0.png)
 
 ---
 ## Visual Graphs
@@ -16,13 +16,22 @@ Visual Graph for Kubernetes (VGK) is a `low-code` Visual Graphing system to crea
 
 `GraphNodes` are the primary building block for `VisualGraphs` and are generated for every well-defined Object Definition on the target cluster's Kuberentes API (CRDs & k8s-core Object Definitions). `GraphNodes` are logically equivalent to the _YAML_ Schema they represent.
 
+###### Figure 2.) GraphNode Concept - GraphNodes grow dynamically based on the Data Inputs Required to make an Object Instance of that given kind
+![vgk graphnode concept](./images/vgk-graphnode-mock-0.png)
+
 Required and Optional Fields for the Schema are defined as `Inputs`, they are visually represented as _Connectors_ on the `GraphNodes` _Left-Side_ and support _Connections_ from `GraphInputs` and other `GraphNodes` `Outputs`.
 
 `Outputs` are relatively standard across `GraphNodes` where there is typically only _1 Output_ defined as `stdout` - which in the case of `VisualGraphs`, the `stdout` is always the `GraphNodes` with its `Inputs` applied resulting in a _Complete YAML Object Definition_. Occasionally, _multiple_ `Outputs` are used which implies that the given `GraphNode` is typically linked together in sequence with other `GraphNodes` (Tekton Pipeline Tasks, etc.) where a specific order is required and preserved.
 
+###### Figure 3.) GraphNode Example - Notice the stdin and stdout used as givens, the ability to create objects from YAML Defs and get the final Output as YAML
+![vgk graphnode concept](./images/vgk-graphnode-mock-1.png)
+
 ---
 ## Graph Utility Nodes
 VGK also provides `GraphUtilityNodes` which are common Utilities and Helper Functions commonly used to make `VisualGraphs` more effective and create Shortcuts for doing longer/tedious cluster tasks.
+
+###### Figure 4.) GraphUtilityNodes Concept - Utilities and Helper Functions to make building on Kubernetes easier and streamlined
+![vgk utility node concept](./images/vgk-utilnode-mock-0.png)
 
 `GraphUtilityNodes` Operations List:
 Operation | - | Description
