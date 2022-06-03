@@ -24,11 +24,12 @@ Required and Optional Fields for the Schema are defined as `Inputs`, they are vi
 VGK also provides `GraphUtilityNodes` which are common Utilities and Helper Functions commonly used to make `VisualGraphs` more effective and create Shortcuts for doing longer/tedious cluster tasks.
 
 `GraphUtilityNodes` Operations List:
-| --- | - | --------- |
-| `ToEnvVar` | => | Output `N Inputs` as `1 Output` in common _Environment Variable_ form for _Deployments_ |
-| `Substitute` | => | Perform Variable Substitution on `1 Input YAML` with `N Inputs` of substitution Values / Secrets / ConfigMaps and create `1 Output YAML` that is fully substituted with the `N Inputs` |
-| `Diff` | => | Perform a Diff between `N Inputs` of YAML and create `1 Output` of the resulting Diff YAML |
-| `Merge` | => | Perform a Merge between `N Inputs` of YAML and create `1 Output` of the resulting Merged YAML |
+Operation | - | Description
+ --- | - | --------- 
+ `ToEnvVar` | => | Output `N Inputs` as `1 Output` in common _Environment Variable_ form for _Deployments_
+ `Substitute` | => | Perform Variable Substitution on `1 Input YAML` with `N Inputs` of substitution Values / Secrets / ConfigMaps and create `1 Output YAML` that is fully substituted with the `N Inputs`
+ `Diff` | => | Perform a Diff between `N Inputs` of YAML and create `1 Output` of the resulting Diff YAML
+ `Merge` | => | Perform a Merge between `N Inputs` of YAML and create `1 Output` of the resulting Merged YAML
 
 ---
 ## What is it?
