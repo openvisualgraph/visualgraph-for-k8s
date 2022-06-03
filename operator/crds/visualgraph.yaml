@@ -1,0 +1,84 @@
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: visualgraphs.graphs.opengraph.io
+spec:
+  group: graphs.opengraph.io
+  names:
+    plural: visualgraphs
+    singular: visualgraph
+    shortNames:
+      - vgk
+    kind: VisualGraph
+    listKind: VisualGraphList
+    categories:
+      - opengraph
+      - opengraph-visualgraphs
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          required:
+            - metadata
+            - spec
+          properties:
+            kind:
+              type: string
+            metadata:
+              type: object
+            spec:
+              type: object
+              properties:
+                graphInputs:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - refName
+                    properties:
+                      kind:
+                        type: string
+                      refName:
+                        type: string
+                      refValue:
+                        type: object
+                nodes:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - nodeName
+                      - kind
+                    properties:
+                      inputs:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - refName
+                            - refPropertyPath
+                          properties:
+                            refName:
+                              type: string
+                            refPropertyPath:
+                              type: string
+                      kind:
+                        type: string
+                      nodeName:
+                        type: string
+                      output:
+                        type: object
+                        x-kubernetes-preserve-unknown-fields: true
+                        x-kubernetes-embedded-resource: true
+                      template:
+                        type: object
+                        x-kubernetes-preserve-unknown-fields: true
+                        x-kubernetes-embedded-resource: true
+      subresources:
+        status: {}
+  conversion:
+    strategy: None
