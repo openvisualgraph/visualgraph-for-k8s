@@ -2,7 +2,7 @@
 Visual Graph for Kubernetes (VGK) is a `low-code` Visual Graphing system to create and script Objects on Kubernetes. VGK is comprised of `VisualGraphs` and `VisualSubGraphs` objects.
 
 ###### Figure 1.) Mock Design
-![VisualGraphReferenceArch](./vgk-mock-0.png)
+![VisualGraphReferenceArch](./images/vgk-mock-0.png)
 
 ---
 ## Visual Graphs
